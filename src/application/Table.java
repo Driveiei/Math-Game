@@ -4,14 +4,12 @@ public class Table implements Numerous{
 	
 	private int number;
 	
-	public Table(int x) {
-		this.number = x;
+	public Table(int number) {
+		this.number = number;
 	}
 	
 	@Override
 	public int getValue() {
 		return number;
-	}
-	
-	
+	}	
 }

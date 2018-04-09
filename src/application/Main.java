@@ -12,8 +12,10 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Newz.fxml"));
-			Scene scene = new Scene(root,400,400);
+			Scene scene = new Scene(root,1100,700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setResizable(false);
+			primaryStage.setTitle("Sudoku");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
