@@ -6,8 +6,8 @@ public class ConsoleDialog {
 
 	private RandomNumber random;
 	private static Scanner console = new Scanner(System.in);
-	final String FULL_PROMPT = "\nEnter d (deposit), w (withdraw), ? (inquiry), or q (quit): ";
-	final String SHORT_PROMPT = "\nEnter d, w, ?, or q: ";
+	final String FULL_PROMPT = "\nEnter c (deposit),  a(add number), ? (inquiry), or q (quit): ";
+	final String SHORT_PROMPT = "\nEnter c, a, ?, or q: ";
 	
 	public ConsoleDialog(RandomNumber random) {
 		this.random = random;
@@ -18,18 +18,18 @@ public class ConsoleDialog {
 		String choice = "";
 		String prompt = FULL_PROMPT;
 		loop: while (true) {
-			System.out.printf("Sudoku contains %.2f \n", random.getBox());
+			System.out.printf("Sudoku contains %d \n", random.getBox());
 			System.out.print(prompt);
 			choice = console.next().trim().toLowerCase();
 			prompt = SHORT_PROMPT;
 			switch (choice) {
-			case "d":
-			case "deposit":
-				depositDialog();
+			case "c":
+			case "checkRandom":
+				random.remain();
 				break;
-			case "w":
-			case "withdraw":
-				withdrawDialog();
+			case "a":
+			case "addNumber":
+				addNumber();
 				break;
 			case "q":
 				break loop; 
@@ -41,11 +41,8 @@ public class ConsoleDialog {
 		System.out.println("Goodbye.");
 	}
 	
-	public void depositDialog() {
-		
-	}
-	
-	public void withdrawDialog() {
-		
+	public void addNumber() {
+		System.out.println("Type Number");
+		this.random = new RandomNumber(Integer.parseInt(console.next()));
 	}
 }
